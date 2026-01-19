@@ -1,0 +1,14 @@
+# Faris AI SaaS - Backend Dependencies
+fastapi==0.109.0
+uvicorn[standard]==0.27.0
+python-multipart==0.0.6
+sqlalchemy==2.0.25
+psycopg2-binary==2.9.9
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+pyjwt==2.8.0
+anthropic==0.18.1
+resend==0.7.2
+pydantic-settings==2.1.0
+python-dotenv==1.0.0
+httpx==0.26.0

@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* RTL Support */
+html {
+  direction: rtl;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: theme('colors.neutral.100');
+}
+
+::-webkit-scrollbar-thumb {
+  background: theme('colors.neutral.300');
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: theme('colors.neutral.400');
+}
+
+/* Glassmorphism utilities */
+@layer utilities {
+  .glass {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+  
+  .glass-dark {
+    background: rgba(26, 26, 24, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Score badges */
+.score-high {
+  @apply bg-green-100 text-green-800 border-green-200;
+}
+
+.score-medium {
+  @apply bg-yellow-100 text-yellow-800 border-yellow-200;
+}
+
+.score-low {
+  @apply bg-neutral-100 text-neutral-600 border-neutral-200;
+}
+
+/* Status badges */
+.status-new { @apply bg-blue-100 text-blue-800; }
+.status-contacted { @apply bg-purple-100 text-purple-800; }
+.status-replied { @apply bg-green-100 text-green-800; }
+.status-meeting { @apply bg-primary-100 text-primary-800; }
+.status-converted { @apply bg-secondary-100 text-secondary-800; }
+.status-archived { @apply bg-neutral-100 text-neutral-600; }
