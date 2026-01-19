@@ -4,9 +4,13 @@
 @tailwind components;
 @tailwind utilities;
 
-/* RTL Support */
-html {
+/* RTL Support - direction is set dynamically by i18n */
+html[dir="rtl"] {
   direction: rtl;
+}
+
+html[dir="ltr"] {
+  direction: ltr;
 }
 
 /* Custom scrollbar */

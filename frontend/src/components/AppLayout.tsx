@@ -1,5 +1,6 @@
 import { Outlet, NavLink, useNavigate } from 'react-router-dom';
 import { useAuth } from '../lib/auth';
+import { useI18n } from '../lib/i18n';
 import {
   LayoutDashboard,
   Users,
@@ -9,25 +10,31 @@ import {
   LogOut,
   Menu,
   X,
+  Globe,
 } from 'lucide-react';
 import { useState } from 'react';
 
-const navigation = [
-  { name: 'الرئيسية', href: '/app', icon: LayoutDashboard },
-  { name: 'العملاء المحتملين', href: '/app/leads', icon: Users },
-  { name: 'الحملات', href: '/app/campaigns', icon: Megaphone },
-  { name: 'مصادر البيانات', href: '/app/sources', icon: Database },
-  { name: 'الإعدادات', href: '/app/settings', icon: Settings },
-];
-
 export default function AppLayout() {
   const { user, logout } = useAuth();
+  const { language, setLanguage, t } = useI18n();
   const navigate = useNavigate();
   const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  const navigation = [
+    { name: t('nav.dashboard'), href: '/app', icon: LayoutDashboard },
+    { name: t('nav.leads'), href: '/app/leads', icon: Users },
+    { name: t('nav.campaigns'), href: '/app/campaigns', icon: Megaphone },
+    { name: t('nav.sources'), href: '/app/sources', icon: Database },
+    { name: t('nav.settings'), href: '/app/settings', icon: Settings },
+  ];
 
   const handleLogout = () => {
     logout();
     navigate('/login');
+  };
+
+  const toggleLanguage = () => {
+    setLanguage(language === 'ar' ? 'en' : 'ar');
   };
 
   return (
@@ -97,12 +104,20 @@ export default function AppLayout() {
                 <p className="text-xs text-neutral-500 truncate">{user?.email}</p>
               </div>
             </div>
+            {/* Language Toggle */}
+            <button
+              onClick={toggleLanguage}
+              className="flex items-center gap-3 w-full px-4 py-3 text-neutral-600 hover:bg-neutral-100 rounded-lg transition-colors"
+            >
+              <Globe className="w-5 h-5" />
+              <span>{language === 'ar' ? 'English' : 'عربي'}</span>
+            </button>
             <button
               onClick={handleLogout}
               className="flex items-center gap-3 w-full px-4 py-3 text-red-600 hover:bg-red-50 rounded-lg transition-colors"
             >
               <LogOut className="w-5 h-5" />
-              <span>تسجيل الخروج</span>
+              <span>{t('nav.logout')}</span>
             </button>
           </div>
         </div>
