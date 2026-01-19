@@ -1,6 +1,7 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { sources as sourcesApi } from '../lib/api';
 import { Plus, Database, Check, Globe } from 'lucide-react';
+import type { DataSource, IndustrySource } from '../types';
 
 export default function Sources() {
   const queryClient = useQueryClient();
@@ -22,7 +23,7 @@ export default function Sources() {
     },
   });
 
-  const enabledIds = new Set(mySources?.map((s: any) => s.industry_source_id));
+  const enabledIds = new Set(mySources?.map((s: DataSource) => s.industry_source_id));
 
   return (
     <div className="space-y-6 animate-fade-in">
@@ -38,7 +39,7 @@ export default function Sources() {
           <p className="text-neutral-500 text-sm">لم تقم بتفعيل أي مصدر بعد</p>
         ) : (
           <div className="space-y-3">
-            {mySources?.map((source: any) => (
+            {mySources?.map((source: DataSource) => (
               <div key={source.id} className="flex items-center justify-between p-3 bg-neutral-50 rounded-lg">
                 <div className="flex items-center gap-3">
                   <Database className="w-5 h-5 text-primary-500" />
@@ -58,7 +59,7 @@ export default function Sources() {
       <div>
         <h2 className="font-semibold text-neutral-900 mb-4">المصادر المتاحة</h2>
         <div className="grid md:grid-cols-2 gap-4">
-          {industrySources?.map((source: any) => {
+          {industrySources?.map((source: IndustrySource) => {
             const isEnabled = enabledIds.has(source.id);
             return (
               <div

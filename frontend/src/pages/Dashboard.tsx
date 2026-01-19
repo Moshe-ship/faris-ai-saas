@@ -1,11 +1,11 @@
 import { useQuery } from '@tanstack/react-query';
 import { dashboard } from '../lib/api';
-import { Users, MessageSquare, Reply, Megaphone, TrendingUp, TrendingDown } from 'lucide-react';
+import { Users, MessageSquare, Reply, Megaphone, TrendingUp, TrendingDown, type LucideIcon } from 'lucide-react';
 
-function StatCard({ title, value, icon: Icon, trend, color }: { 
-  title: string; 
-  value: string | number; 
-  icon: any;
+function StatCard({ title, value, icon: Icon, trend, color }: {
+  title: string;
+  value: string | number;
+  icon: LucideIcon;
   trend?: number;
   color: string;
 }) {

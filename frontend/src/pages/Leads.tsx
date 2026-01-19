@@ -3,6 +3,7 @@ import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { Link } from 'react-router-dom';
 import { leads as leadsApi, ai } from '../lib/api';
 import { Search, Plus, Upload, Filter, MoreVertical, Sparkles, Mail, Linkedin } from 'lucide-react';
+import type { Lead } from '../types';
 
 function ScoreBadge({ score }: { score: number }) {
   const color = score >= 7 ? 'score-high' : score >= 4 ? 'score-medium' : 'score-low';
@@ -141,7 +142,7 @@ export default function Leads() {
                 </td>
               </tr>
             ) : (
-              data?.leads?.map((lead: any) => (
+              data?.leads?.map((lead: Lead) => (
                 <tr key={lead.id} className="hover:bg-neutral-50">
                   <td className="px-4 py-4">
                     <Link to={`/app/leads/${lead.id}`} className="font-medium text-neutral-900 hover:text-primary-500">

@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import { campaigns as campaignsApi } from '../lib/api';
 import { Plus, Play, Pause, MoreVertical } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import type { Campaign } from '../types';
 
 export default function Campaigns() {
   const { data: campaigns, isLoading } = useQuery({
@@ -58,7 +59,7 @@ export default function Campaigns() {
         </div>
       ) : (
         <div className="grid gap-4">
-          {campaigns?.map((campaign: any) => (
+          {campaigns?.map((campaign: Campaign) => (
             <div
               key={campaign.id}
               className="bg-white rounded-xl p-6 border border-neutral-200 hover:shadow-md transition-shadow"
