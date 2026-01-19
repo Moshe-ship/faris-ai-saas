@@ -1,0 +1,21 @@
+{
+  "name": "فارس AI - منصة المبيعات الذكية",
+  "short_name": "فارس AI",
+  "description": "منصة ذكاء اصطناعي للمبيعات مصممة للسوق السعودي",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#006C35",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

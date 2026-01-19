@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#008C45;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#006C35;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <!-- Background circle -->
+  <circle cx="16" cy="16" r="15" fill="url(#grad)"/>
+  <!-- Arabic letter ف (Fa) stylized -->
+  <text x="16" y="22" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white" text-anchor="middle" direction="rtl">ف</text>
+  <!-- AI dot accent -->
+  <circle cx="22" cy="8" r="3" fill="#FFD700"/>
+</svg>
